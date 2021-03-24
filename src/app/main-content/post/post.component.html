@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-xs-12" *ngFor='let post of data; index as i;'>
+        <div class="d-flex justify-content-center mb-3">
+            <input matInput class="text-center heading" [(ngModel)]="post.heading">
+        </div>
+        <div class="d-flex justify-content-center">
+            <img class=" col-lg-3 col-md-4 col-sm-6 col-xs-6" [src]="post.imageURL">
+            <angular-editor class="mx-4 col-md-6 col-sm-6 col-xs-6" [(ngModel)]="post.content"></angular-editor>
+        </div>
+        <div class="d-flex justify-content-end">
+            <button mat-raised-button color="primary" class=" my-3" (click)="onSelect(i)">Go here</button>
+        </div>
+    </div>
+</div>

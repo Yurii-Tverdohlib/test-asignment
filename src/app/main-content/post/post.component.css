@@ -1,0 +1,19 @@
+img{
+    height: 200px;
+    width: 200px;
+}
+
+.heading{
+    font-size: 30px;
+}
+
+button{
+    margin-right: 15%;
+}
+
+angular-editor{
+    width: 90%;
+    font-size: 20px;
+    line-height: 30px;
+    resize: none;
+}

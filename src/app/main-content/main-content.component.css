@@ -1,0 +1,12 @@
+.img-responsive{
+    width: auto;
+    height: 400px;
+}
+
+angular-editor{
+    resize:none;
+}
+
+button{
+    margin-right: 12%;
+}

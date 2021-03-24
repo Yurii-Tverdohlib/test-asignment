@@ -1,0 +1,43 @@
+<form [formGroup]='postForm' (ngSubmit)="StorePosts()">
+    <mat-form-field appearance=" fill">
+        <mat-label>Choose the theme for the post:</mat-label>
+        <mat-select formControlName="select">
+            <mat-option *ngFor="let el of selected" [value]="el.value">
+                {{el.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+    <div>
+        <div><input formControlName="imageURL" type="file" (change)="fileChangeEvent($event)" /></div>
+
+        <ngx-photo-editor [imageChanedEvent]="imageChangedEvent" (imageCropped)="imageCropped($event)"
+            [aspectRatio]="4/3" [viewMode]="3" [resizeToWidth]="500"></ngx-photo-editor>
+
+        <img [src]="base64" alt="">
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+            <mat-label>Title</mat-label>
+            <input formControlName="heading" matInput placeholder="IT is the best">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Short text</mat-label>
+            <textarea formControlName="textAreaSmall" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Text</mat-label>
+            <textarea formControlName="content" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5"></textarea>
+        </mat-form-field>
+    </div>
+    <div class="form-group d-flex justify-content-between">
+        <button mat-raised-button color="primary" [disabled]="!postForm.valid">Submit</button>
+        <!-- <button mat-raised-button color="primary" (click)="FetchPosts()">Fetch Posts</button> -->
+        <button mat-raised-button color="warn" [mat-dialog-close]=" true" cdkFocusInitial>Close</button>
+    </div>
+</form>
